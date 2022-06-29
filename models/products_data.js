@@ -16,8 +16,58 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
             },
-            // Type all the Columns names and their Datatypes here
-            // (If you Dont know how to do it then take a reference from manager_master.js file)
+            Name: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            Code: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+            Description: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            Image: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            Color: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            Size: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            Stock: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+            CostoCompra: {
+                type: DataTypes.DOUBLE,
+                allowNull: false,
+            },
+            PrecioPorMayor: {
+                type: DataTypes.DOUBLE,
+                allowNull: false,
+            },
+            PrecioPorMenor: {
+                type: DataTypes.DOUBLE,
+                allowNull: false,
+            },
+            Deposito: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+
+            //-----------CATEGORY ID ASSOCIATIONS---------------------------
+            // Category_id: {
+            //     type: DataTypes.DATE,
+            //     allowNull: false,
+            // },
+
+            //----------------------------------------------------------------
         },
         {
             sequelize,

@@ -12,8 +12,27 @@ module.exports = (sequelize, DataTypes) => {
     }
     Order_product.init(
         {
-            // Type all the Columns names and their Datatypes here
-            // (If you Dont know how to do it then take a reference from manager_master.js file)
+            Qty: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+            Total_price: {
+                type: DataTypes.DATE,
+                allowNull: false,
+            },
+            parentArray: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+            childArray: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+
+            //-------------ASSOCIATIONS---------------------------
+            // Product_id: 1,             Foreign Key
+            // Order_id: 1            Foreign Key
+            //----------------------------------------------------------------
         },
         {
             sequelize,

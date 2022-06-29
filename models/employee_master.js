@@ -16,8 +16,38 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
             },
-            // Type all the Columns names and their Datatypes here
-            // (If you Dont know how to do it then take a reference from manager_master.js file)
+            UserName: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            First_name: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            Last_name: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            Email: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            password: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            Salary: {
+                type: DataTypes.DOUBLE,
+                allowNull: false,
+            },
+            JoinDate: {
+                type: DataTypes.DATE,
+                allowNull: false,
+            },
+            Leaves: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
         },
         {
             sequelize,
