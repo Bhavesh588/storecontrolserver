@@ -3,18 +3,19 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Employee_master extends Model {
-        // static associate({ Employee_master }) {
-        //     this.hasMany(Employee_master, { foreignKey: "userId", as: "posts" });
-        // }
-        // toJSON() {
-        //     return { ...this.get(), id: undefined };
-        // }
+        static associate({ Order_master }) {
+            this.hasMany(Order_master, {
+                foreignKey: "Employee_id",
+                as: "order_master",
+            });
+        }
     }
     Employee_master.init(
         {
             Employee_id: {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
+                primaryKey: true,
             },
             UserName: {
                 type: DataTypes.STRING,
@@ -32,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            password: {
+            Password: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
@@ -40,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
             },
-            JoinDate: {
+            Join_date: {
                 type: DataTypes.DATE,
                 allowNull: false,
             },

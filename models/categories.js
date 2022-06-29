@@ -3,20 +3,21 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Categories extends Model {
-        // static associate({ Categories }) {
-        //     this.hasMany(Categories, { foreignKey: "userId", as: "posts" });
-        // }
-        // toJSON() {
-        //     return { ...this.get(), id: undefined };
-        // }
+        static associate({ Products_data }) {
+            this.hasMany(Products_data, {
+                foreignKey: "Category_id",
+                as: "products_data",
+            });
+        }
     }
     Categories.init(
         {
             Category_id: {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
+                primaryKey: true,
             },
-            NameCat: {
+            Name: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },

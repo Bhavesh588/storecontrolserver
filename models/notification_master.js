@@ -6,15 +6,13 @@ module.exports = (sequelize, DataTypes) => {
         // static associate({ Notification_master }) {
         //     this.hasMany(Notification_master, { foreignKey: "userId", as: "posts" });
         // }
-        // toJSON() {
-        //     return { ...this.get(), id: undefined };
-        // }
     }
     Notification_master.init(
         {
             Notify_id: {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
+                primaryKey: true,
             },
             Title: {
                 type: DataTypes.STRING,

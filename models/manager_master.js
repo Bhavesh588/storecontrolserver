@@ -6,15 +6,13 @@ module.exports = (sequelize, DataTypes) => {
         // static associate({ Manager_master }) {
         //     this.hasMany(Manager_master, { foreignKey: "userId", as: "posts" });
         // }
-        // toJSON() {
-        //     return { ...this.get(), id: undefined };
-        // }
     }
     Manager_master.init(
         {
             Manager_id: {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
+                primaryKey: true,
             },
             First_name: {
                 type: DataTypes.STRING,

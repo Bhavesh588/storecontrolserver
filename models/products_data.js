@@ -3,24 +3,29 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Products_data extends Model {
-        // static associate({ Products_data }) {
-        //     this.hasMany(Products_data, { foreignKey: "userId", as: "posts" });
-        // }
-        // toJSON() {
-        //     return { ...this.get(), id: undefined };
-        // }
+        static associate({ Categories, Order_product }) {
+            this.belongsTo(Categories, {
+                foreignKey: "Category_id",
+                as: "categories",
+            });
+            this.hasMany(Order_product, {
+                foreignKey: "Product_id",
+                as: "order_product",
+            });
+        }
     }
     Products_data.init(
         {
             Product_id: {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
+                primaryKey: true,
             },
             Name: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            Code: {
+            codigo: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
@@ -44,15 +49,15 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
-            CostoCompra: {
+            precioVenta: {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
             },
-            PrecioPorMayor: {
+            costoCompra: {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
             },
-            PrecioPorMenor: {
+            costoMenor: {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
             },

@@ -6,15 +6,13 @@ module.exports = (sequelize, DataTypes) => {
         // static associate({ Expense_master }) {
         //     this.hasMany(Expense_master, { foreignKey: "userId", as: "posts" });
         // }
-        // toJSON() {
-        //     return { ...this.get(), id: undefined };
-        // }
     }
     Expense_master.init(
         {
             ExpenseId: {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
+                primaryKey: true,
             },
             Date: {
                 type: DataTypes.DATE,
