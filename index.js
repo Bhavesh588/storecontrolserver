@@ -16,6 +16,12 @@ app.use(cors());
 //     });
 // }
 
+const categoryRoutes = require("./routes/categoryRoutes");
+app.use("/category", categoryRoutes);
+
+const productRoutes = require("./routes/productRoutes");
+app.use("/product", productRoutes);
+
 // app.post("/users", async (req, res) => {
 //     const { name, email } = req.body;
 

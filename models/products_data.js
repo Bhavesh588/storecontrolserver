@@ -21,15 +21,15 @@ module.exports = (sequelize, DataTypes) => {
                 defaultValue: DataTypes.UUIDV4,
                 primaryKey: true,
             },
-            Name: {
+            nombre: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
             codigo: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
-            Description: {
+            description: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
@@ -46,23 +46,23 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
             },
             Stock: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             precioVenta: {
-                type: DataTypes.DOUBLE,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             costoCompra: {
-                type: DataTypes.DOUBLE,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             costoMenor: {
-                type: DataTypes.DOUBLE,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             Deposito: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
 
