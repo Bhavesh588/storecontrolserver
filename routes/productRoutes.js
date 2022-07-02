@@ -32,4 +32,13 @@ router.delete("/delete/:id", (req, res) => {
     }).then(() => res.send("success"));
 });
 
+// Update Product
+router.put("/edit", (req, res) => {
+    db.Product.update(req.body, {
+        where: {
+            Product_id: req.body.Product_id,
+        },
+    }).then(() => res.send("success"));
+});
+
 module.exports = router;
