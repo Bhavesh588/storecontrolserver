@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
             },
             Client_name: {
-                type: DataTypes.DATE,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             Order_status: {
@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             Metodo_de_Pago: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                allowNull: true,
             },
 
             //-----------Employee_id is association---------------------------

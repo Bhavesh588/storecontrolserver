@@ -25,8 +25,12 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
+            code: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
             Total_price: {
-                type: DataTypes.DATE,
+                type: DataTypes.INTEGER,
                 allowNull: false,
             },
             parentArray: {

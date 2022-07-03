@@ -22,6 +22,15 @@ app.use("/category", categoryRoutes);
 const productRoutes = require("./routes/productRoutes");
 app.use("/product", productRoutes);
 
+const ordermasterRoutes = require("./routes/ordermasterRoutes");
+app.use("/ordermaster", ordermasterRoutes);
+
+const orderproductRoutes = require("./routes/orderproductRoutes");
+app.use("/orderproduct", orderproductRoutes);
+
+const employeeRoutes = require("./routes/employeeRoutes");
+app.use("/employee", employeeRoutes);
+
 // app.post("/users", async (req, res) => {
 //     const { name, email } = req.body;
 
