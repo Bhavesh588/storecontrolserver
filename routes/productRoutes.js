@@ -4,7 +4,9 @@ const db = require("../models");
 
 // All Product Data
 router.get("/", (req, res) => {
-    db.Products_data.findAll().then((product) => res.send(product));
+    db.Products_data.findAll({
+        include: [{ model: db.Deposito, as: "deposito" }],
+    }).then((product) => res.send(product));
 });
 
 // Insert Product
@@ -21,6 +23,20 @@ router.put("/edit", (req, res) => {
             Product_id: req.body.Product_id,
         },
     }).then(() => res.send("successfully Updated"));
+});
+
+// Update Product Quantity
+router.put("/quantity", (req, res) => {
+    db.Products_data.update(
+        {
+            Stock: req.body.Stock,
+        },
+        {
+            where: {
+                Product_id: req.body.Product_id,
+            },
+        }
+    ).then(() => res.send("success"));
 });
 
 // Delete Product

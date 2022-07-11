@@ -4,7 +4,9 @@ const db = require("../models");
 // prettier-ignore
 // All Employee Data
 router.get("/", (req, res) => {
-    db.Employee_master.findAll().then((order) => res.send(order));
+    db.Employee_master.findAll({
+        include: [{model: db.Deposito, as: 'deposito'}]
+    }).then((order) => res.send(order));
 });
 
 // prettier-ignore

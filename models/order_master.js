@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
             });
             this.hasMany(Order_product, {
                 foreignKey: "Order_id",
+                onDelete: "CASCADE",
                 as: "order_product",
             });
         }

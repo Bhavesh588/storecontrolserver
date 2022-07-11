@@ -3,14 +3,19 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Products_data extends Model {
-        static associate({ Categories, Order_product }) {
+        static associate({ Categories, Order_product, Deposito }) {
             this.belongsTo(Categories, {
                 foreignKey: "Category_id",
                 as: "categories",
             });
             this.hasMany(Order_product, {
                 foreignKey: "Product_id",
+                onDelete: "CASCADE",
                 as: "order_product",
+            });
+            this.belongsTo(Deposito, {
+                foreignKey: "Deposito_id",
+                as: "deposito",
             });
         }
     }
@@ -58,10 +63,6 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false,
             },
             costoMenor: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            Deposito: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },

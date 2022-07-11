@@ -2,18 +2,23 @@
 
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-    class Categories extends Model {
-        static associate({ Products_data }) {
+    class Deposito extends Model {
+        static associate({ Products_data, Employee_master }) {
+            this.hasMany(Employee_master, {
+                foreignKey: "Deposito_id",
+                onDelete: "CASCADE",
+                as: "employee_master",
+            });
             this.hasMany(Products_data, {
-                foreignKey: "Category_id",
+                foreignKey: "Deposito_id",
                 onDelete: "CASCADE",
                 as: "products_data",
             });
         }
     }
-    Categories.init(
+    Deposito.init(
         {
-            Category_id: {
+            Deposito_id: {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
                 primaryKey: true,
@@ -25,9 +30,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             sequelize,
-            tableName: "categories",
-            modelName: "Categories",
+            tableName: "deposito",
+            modelName: "Deposito",
         }
     );
-    return Categories;
+    return Deposito;
 };

@@ -19,6 +19,9 @@ app.use(cors());
 const categoryRoutes = require("./routes/categoryRoutes");
 app.use("/category", categoryRoutes);
 
+const depositoRoutes = require("./routes/depositoRoutes");
+app.use("/deposito", depositoRoutes);
+
 const productRoutes = require("./routes/productRoutes");
 app.use("/product", productRoutes);
 
