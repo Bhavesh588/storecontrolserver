@@ -50,11 +50,21 @@ router.delete("/delete/:id", (req, res) => {
 
 // Update Product
 router.put("/edit", (req, res) => {
-    db.Product.update(req.body, {
-        where: {
-            Product_id: req.body.Product_id,
+    db.Product.update(
+        {
+            codigo: req.body.codigo,
+            Size: req.body.Size,
+            Stock: req.body.Stock,
+            precioVenta: req.body.precioVenta,
+            costoCompra: req.body.costoCompra,
+            costoMenor: req.body.costoMenor,
         },
-    }).then(() => res.send("success"));
+        {
+            where: {
+                Product_id: req.body.Product_id,
+            },
+        }
+    ).then(() => res.send("success"));
 });
 
 module.exports = router;
