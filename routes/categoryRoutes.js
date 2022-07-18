@@ -7,6 +7,7 @@ router.get("/", (req, res) => {
     db.Categories.findAll().then((category) => res.send(category));
 });
 
+
 // Insert Category
 router.post("/new", (req, res) => {
     db.Categories.create({

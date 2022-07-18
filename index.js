@@ -34,6 +34,13 @@ app.use("/orderproduct", orderproductRoutes);
 const employeeRoutes = require("./routes/employeeRoutes");
 app.use("/employee", employeeRoutes);
 
+
+const expensecatRoutes =  require("./routes/expensecatRoutes");
+app.use("/expensecat", expensecatRoutes);
+
+const expenseRoutes =  require("./routes/expenseRoutes");
+app.use("/expense", expenseRoutes);
+
 // app.post("/users", async (req, res) => {
 //     const { name, email } = req.body;
 
