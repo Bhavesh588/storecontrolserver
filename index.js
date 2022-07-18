@@ -22,6 +22,9 @@ app.use("/category", categoryRoutes);
 const depositoRoutes = require("./routes/depositoRoutes");
 app.use("/deposito", depositoRoutes);
 
+const managermasterRoutes = require("./routes/managermasterRoutes");
+app.use("/managermaster", managermasterRoutes);
+
 const productRoutes = require("./routes/productRoutes");
 app.use("/product", productRoutes);
 

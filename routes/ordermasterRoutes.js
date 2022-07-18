@@ -15,4 +15,27 @@ router.post("/new", (req, res) => {
     db.Order_master.create(req.body).then((submittedOrder) => res.send(submittedOrder));
 });
 
+// Update Order Master
+router.put("/price", (req, res) => {
+    db.Order_master.update(
+        {
+            Total_price: req.body.Total_price,
+        },
+        {
+            where: {
+                Order_id: req.body.Order_id,
+            },
+        }
+    ).then(() => res.send("success"));
+});
+
+// Delete Order Master
+router.delete("/delete/:id", (req, res) => {
+    db.Order_master.destroy({
+        where: {
+            Order_id: req.params.id,
+        },
+    }).then(() => res.send("success"));
+});
+
 module.exports = router;

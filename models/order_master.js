@@ -3,11 +3,15 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Order_master extends Model {
-        static associate({ Employee_master, Order_product }) {
-            this.belongsTo(Employee_master, {
-                foreignKey: "Employee_id",
-                as: "employee_master",
-            });
+        static associate({ Employee_master, Order_product, Deposito }) {
+            // this.belongsTo(Employee_master, {
+            //     foreignKey: "Employee_id",
+            //     as: "employee_master",
+            // });
+            // this.belongsTo(Deposito, {
+            //     foreignKey: "Deposito_id",
+            //     as: "deposito",
+            // });
             this.hasMany(Order_product, {
                 foreignKey: "Order_id",
                 onDelete: "CASCADE",
@@ -45,6 +49,14 @@ module.exports = (sequelize, DataTypes) => {
             Metodo_de_Pago: {
                 type: DataTypes.STRING,
                 allowNull: true,
+            },
+            Employee_name: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            Deposito_name: {
+                type: DataTypes.STRING,
+                allowNull: false,
             },
 
             //-----------Employee_id is association---------------------------

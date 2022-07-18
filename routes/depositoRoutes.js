@@ -9,9 +9,21 @@ router.get("/", (req, res) => {
 
 // Insert Deposito
 router.post("/new", (req, res) => {
-    db.Deposito.create({
-        nombre: req.body.nombre,
-    }).then((deposito) => res.send(deposito));
+    db.Deposito.create(req.body).then((deposito) => res.send(deposito));
+});
+
+// Add Employee List
+router.put("/employee", (req, res) => {
+    db.Deposito.update(
+        {
+            Employee_list: req.body.Employee_list,
+        },
+        {
+            where: {
+                Deposito_id: req.body.Deposito_id,
+            },
+        }
+    ).then(() => res.send("success"));
 });
 
 module.exports = router;

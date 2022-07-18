@@ -13,4 +13,13 @@ router.post("/new", (req, res) => {
     db.Order_product.bulkCreate(req.body).then((submittedProduct) => res.send(submittedProduct));
 });
 
+// Delete Order Product
+router.delete("/delete/:id", (req, res) => {
+    db.Order_product.destroy({
+        where: {
+            Order_pro_id: req.params.id,
+        },
+    }).then(() => res.send("success"));
+});
+
 module.exports = router;
