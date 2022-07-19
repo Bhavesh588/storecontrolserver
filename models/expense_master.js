@@ -3,9 +3,14 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     class Expense_master extends Model {
-        // static associate({ Expense_master }) {
-        //     this.hasMany(Expense_master, { foreignKey: "userId", as: "posts" });
-        // }
+        static associate({ Expense_master }) {
+            this.belongsTo(Expense_master, {
+                foreignKey: "CategoryExpense_id",
+                as: "expense_categories",
+            });
+
+        
+        }
     }
     Expense_master.init(
         {
@@ -14,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
                 defaultValue: DataTypes.UUIDV4,
                 primaryKey: true,
             },
-            Date: {
+            date: {
                 type: DataTypes.DATE,
                 allowNull: false,
             },
@@ -22,14 +27,6 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
-            Category: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            // SubCat: {
-            //     type: DataTypes.STRING,
-            //     allowNull: false,
-            // },
             Description: {
                 type: DataTypes.STRING,
                 allowNull: false,
