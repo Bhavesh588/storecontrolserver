@@ -39,6 +39,20 @@ router.put("/quantity", (req, res) => {
     ).then(() => res.send("success"));
 });
 
+// Update Product Images
+router.put("/images", (req, res) => {
+    db.Products_data.update(
+        {
+            Image: req.body.Image,
+        },
+        {
+            where: {
+                Product_id: req.body.Product_id,
+            },
+        }
+    ).then(() => res.send("success"));
+});
+
 // Delete Product
 router.delete("/delete/:id", (req, res) => {
     db.Products_data.destroy({
