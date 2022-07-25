@@ -37,11 +37,13 @@ app.use("/orderproduct", orderproductRoutes);
 const employeeRoutes = require("./routes/employeeRoutes");
 app.use("/employee", employeeRoutes);
 
+const salesactivityRoutes = require("./routes/salesactivityRoutes");
+app.use("/salesactivity", salesactivityRoutes);
 
-const expensecatRoutes =  require("./routes/expensecatRoutes");
+const expensecatRoutes = require("./routes/expensecatRoutes");
 app.use("/expensecat", expensecatRoutes);
 
-const expenseRoutes =  require("./routes/expenseRoutes");
+const expenseRoutes = require("./routes/expenseRoutes");
 app.use("/expense", expenseRoutes);
 
 const notificationRoutes =  require("./routes/notificationRoutes");

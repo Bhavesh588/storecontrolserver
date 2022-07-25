@@ -29,6 +29,20 @@ router.put("/price", (req, res) => {
     ).then(() => res.send("success"));
 });
 
+// Update Order Status
+router.put("/status", (req, res) => {
+    db.Order_master.update(
+        {
+            Order_status: req.body.Order_status,
+        },
+        {
+            where: {
+                Order_id: req.body.Order_id,
+            },
+        }
+    ).then(() => res.send("success"));
+});
+
 // Delete Order Master
 router.delete("/delete/:id", (req, res) => {
     db.Order_master.destroy({

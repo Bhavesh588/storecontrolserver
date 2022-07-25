@@ -39,6 +39,20 @@ router.put("/quantity", (req, res) => {
     ).then(() => res.send("success"));
 });
 
+// Update Product Images
+router.put("/images", (req, res) => {
+    db.Products_data.update(
+        {
+            Image: req.body.Image,
+        },
+        {
+            where: {
+                Product_id: req.body.Product_id,
+            },
+        }
+    ).then(() => res.send("success"));
+});
+
 // Delete Product
 router.delete("/delete/:id", (req, res) => {
     db.Products_data.destroy({
@@ -49,22 +63,12 @@ router.delete("/delete/:id", (req, res) => {
 });
 
 // Update Product
-router.put("/edit", (req, res) => {
-    db.Product.update(
-        {
-            codigo: req.body.codigo,
-            Size: req.body.Size,
-            Stock: req.body.Stock,
-            precioVenta: req.body.precioVenta,
-            costoCompra: req.body.costoCompra,
-            costoMenor: req.body.costoMenor,
-        },
-        {
-            where: {
-                Product_id: req.body.Product_id,
-            },
-        }
-    ).then(() => res.send("success"));
-});
+// router.put("/edit", (req, res) => {
+//     db.Product.update(req.body, {
+//         where: {
+//             Product_id: req.body.Product_id,
+//         },
+//     }).then(() => res.send("success"));
+// });
 
 module.exports = router;
